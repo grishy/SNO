@@ -38,7 +38,7 @@ const level = [
 
 const WORLD = {
     sizeBlock: 16,
-    playerRadius: 6
+    playerRadius: 4
 }
 
 class Bitmap {
@@ -130,6 +130,9 @@ class Camera {
     constructor() {
         this.width = map.width * WORLD.sizeBlock;
         this.height = map.height * WORLD.sizeBlock;
+        this.focalLength = 0.8;
+        this.resolution = 100;
+        this.rayLength = 250;
     }
 
     drawRay(startX, startY, endX, endY, color) {
@@ -142,22 +145,30 @@ class Camera {
     }
 
     renderRays() {
-        let numRays = 100;
-        let fov = degreesToRadians(60);
-        let viewDist = 150;
-        let directionRay = player.direction - fov/2;
-        let directionLastRay = player.direction + fov/2;
-        let dAngle = fov/numRays;
+        let log = []
+        for (let column = 0; column < this.resolution; column++) {
+            let x = column / this.resolution - 0.5;
+            let angle = Math.atan2(x, this.focalLength);
+            
+            log.push({
+                x,
+                angle
+            })
 
-        for (; directionRay < directionLastRay; directionRay += dAngle) {
+            let playerX = player.x * WORLD.sizeBlock;
+            let playerY = player.y * WORLD.sizeBlock;
+
             this.drawRay(
-              player.x * WORLD.sizeBlock,
-              player.y * WORLD.sizeBlock,
-              player.x * WORLD.sizeBlock + Math.cos(directionRay) * viewDist,
-              player.y * WORLD.sizeBlock + Math.sin(directionRay) * viewDist,
-              'rgba(0,0,0,.4)'
+                playerX,
+                playerY,
+                playerX + Math.cos(player.direction + angle) * this.rayLength,
+                playerY + Math.sin(player.direction + angle) * this.rayLength,
+                "rgba(100,200,100,0.8)"
             )
         }
+        console.log(player.direction);
+        console.table(log);
+        xxx
     }
 
     renderPlayer() {
@@ -232,6 +243,6 @@ let loop = new GameLoop();
 
 window.addEventListener("load", loop.start(function(seconds) {
     // map.update(seconds);
-    player.update(seconds, controls);
+    player.update(seconds);
     сamera.render();
 }));
