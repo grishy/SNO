@@ -89,7 +89,7 @@ class Player {
         let dx = Math.cos(this.direction) * distance;
         let dy = Math.sin(this.direction) * distance;
 
-        // Не совсем точная 
+        // Не совсем точная
         let radiusPlaterInMap = WORLD.playerRadius / WORLD.sizeBlock;
         let collisionX = dx > 0 ? radiusPlaterInMap : -radiusPlaterInMap;
         let collisionY = dy > 0 ? radiusPlaterInMap : -radiusPlaterInMap;
@@ -132,6 +132,34 @@ class Camera {
         this.height = map.height * WORLD.sizeBlock;
     }
 
+    drawRay(startX, startY, endX, endY, color) {
+        ctx.strokeStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.closePath();
+        ctx.stroke();
+    }
+
+    renderRays() {
+        let numRays = 100;
+        let fov = degreesToRadians(60);
+        let viewDist = 150;
+        let directionRay = player.direction - fov/2;
+        let directionLastRay = player.direction + fov/2;
+        let dAngle = fov/numRays;
+
+        for (; directionRay < directionLastRay; directionRay += dAngle) {
+            this.drawRay(
+              player.x * WORLD.sizeBlock,
+              player.y * WORLD.sizeBlock,
+              player.x * WORLD.sizeBlock + Math.cos(directionRay) * viewDist,
+              player.y * WORLD.sizeBlock + Math.sin(directionRay) * viewDist,
+              'rgba(0,0,0,.4)'
+            )
+        }
+    }
+
     renderPlayer() {
         let x = player.x * WORLD.sizeBlock;
         let y = player.y * WORLD.sizeBlock;
@@ -141,16 +169,9 @@ class Camera {
         ctx.arc(x, y, WORLD.playerRadius, 0, 2 * Math.PI, false);
         ctx.fill();
 
-
-        ctx.strokeStyle = '#E64A19';
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(
-            (x + Math.cos(player.direction) * 40),
-            (y + Math.sin(player.direction) * 40)
-        );
-        ctx.closePath();
-        ctx.stroke();
+        let lineEndX = x + Math.cos(player.direction) * 40;
+        let lineEndY = y + Math.sin(player.direction) * 40;
+        this.drawRay(x, y, lineEndX, lineEndY, '#E64A19')
     }
 
     renderMap() {
@@ -159,7 +180,7 @@ class Camera {
                 let wall = level[x][y];
                 ctx.fillStyle = "#BDBDBD";
                 if (wall > 0) {
-                    ctx.fillRect( // ... нарисовать блок на холсте
+                    ctx.fillRect(
                         x * WORLD.sizeBlock, // X
                         y * WORLD.sizeBlock, // Y
                         WORLD.sizeBlock, WORLD.sizeBlock // Width, Height
@@ -172,8 +193,9 @@ class Camera {
 
     render(seconds) {
         ctx.clearRect(0, 0, this.width, this.height);
-        this.renderMap()
-        this.renderPlayer()
+        this.renderMap();
+        this.renderRays();
+        this.renderPlayer();
     }
 }
 

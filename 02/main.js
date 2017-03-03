@@ -89,7 +89,7 @@ class Player {
         let dx = Math.cos(this.direction) * distance;
         let dy = Math.sin(this.direction) * distance;
 
-        // Не совсем точная 
+        // Not quite accurate (Angles)
         let radiusPlaterInMap = WORLD.playerRadius / WORLD.sizeBlock;
         let collisionX = dx > 0 ? radiusPlaterInMap : -radiusPlaterInMap;
         let collisionY = dy > 0 ? radiusPlaterInMap : -radiusPlaterInMap;
@@ -159,7 +159,7 @@ class Camera {
                 let wall = level[x][y];
                 ctx.fillStyle = "#BDBDBD";
                 if (wall > 0) {
-                    ctx.fillRect( // ... нарисовать блок на холсте
+                    ctx.fillRect(
                         x * WORLD.sizeBlock, // X
                         y * WORLD.sizeBlock, // Y
                         WORLD.sizeBlock, WORLD.sizeBlock // Width, Height
