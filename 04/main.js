@@ -5,29 +5,29 @@ const degreesToRadians = (degrees) => degrees * Math.PI / 180;
 
 const level = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1.99, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
@@ -133,16 +133,12 @@ class Player {
 
 class Map {
     constructor() {
-        this.wallTexture = [,
-            new Bitmap('wall_texture1.jpg', 1024, 1024),
-            new Bitmap('wall_texture2.jpg', 1024, 1024),
-            new Bitmap('wall_texture3.jpg', 1024, 1024),
-            new Bitmap('wall_texture1.jpg', 1024, 1024),
-            new Bitmap('wall_texture1.jpg', 1024, 1024),
-            new Bitmap('wall_texture1.jpg', 1024, 1024),
-            new Bitmap('wall_texture1.jpg', 1024, 1024),
-            new Bitmap('wall_texture1.jpg', 1024, 1024),
-            new Bitmap('wall_texture1.jpg', 1024, 1024)
+        this.wallTexture = [, [new Bitmap('wall_texture1.jpg', 1024, 1024), 1],
+            [new Bitmap('wall_texture2.jpg', 1024, 1024), 2],
+            [new Bitmap('wall_texture3.png', 1024, 1024), 3],
+            [new Bitmap('wall_texture4.png', 256, 256), 0.3],
+            [new Bitmap('wall_texture5.png', 1024, 1024), 0.5],
+            [new Bitmap('wall_texture1.jpg', 1024, 1024), 1]
         ]
         this.width = level[0].length;
         this.height = level.length;
@@ -205,7 +201,7 @@ class Map {
 
 class Camera {
     constructor() {
-        this.width = 800;
+        this.width = 600;
         this.height = this.width / 16 * 9;
         this.focalLength = 0.8;
         this.resolution = this.width;
@@ -289,24 +285,26 @@ class Camera {
 
             for (var s = ray.length - 1; s >= 0; s--) {
                 if (ray[s].height > 0) {
+                    let texture = map.wallTexture[Math.trunc(ray[s].height)];
+
                     var z = ray[s].distance * Math.cos(angle);
-                    var wallHeight = 1300 / z;
-                    let top = (this.height - wallHeight) / 2 - wallHeight * (ray[s].height - 1);
-                    wallHeight *= ray[s].height;
+                    var wallHeight = 1000 / z;
+                    let top = (this.height - wallHeight) / 2 - wallHeight * (texture[1] - 1);
+                    wallHeight *= texture[1];
                     let end = top + wallHeight;
-                    let a = z * z  / 300;
+                    let a = z * z / 300;
                     a = Math.min(1, a);
 
-                    let texture = map.wallTexture[Math.trunc(ray[s].height)];
-                    // console.log(Math.trunc(ray[s].height));
-                    let textureX = Math.floor(texture.width * ray[s].offset);
+                    let textureX = Math.floor(texture[0].width * ray[s].offset);
 
                     ctx.globalAlpha = 1;
-                    ctx.drawImage(texture.image, textureX, 0, 1, texture.height, column, top, 1, wallHeight);
 
-                    ctx.fillStyle = '#000000';
-                    ctx.globalAlpha =  Math.min(a, 1);
-                    ctx.fillRect(column, top-1, 1, wallHeight + 1);
+                    // console.log(texture[0].image, textureX, 0, 1, texture.height, column, top, 1, wallHeight);
+                    ctx.drawImage(texture[0].image, textureX, 0, 1, texture[0].height, column, top, 1, wallHeight);
+
+                    //     ctx.fillStyle = '#000000';
+                    //     ctx.globalAlpha =  Math.min(a, 1);
+                    //     ctx.fillRect(column, top-1, 1, wallHeight + 1);
                 }
 
             }
