@@ -36,17 +36,8 @@ const level = [
 ];
 
 const WORLD = {
-    sizeBlock: 30,
-    playerRadius: 3
-}
-
-class Bitmap {
-    constructor(src, width, height) {
-        this.image = new Image();
-        this.image.src = src;
-        this.width = width;
-        this.height = height;
-    }
+    sizeBlock: 24,
+    playerRadius: 6
 }
 
 class Control {
@@ -102,8 +93,8 @@ class Player {
     }
 
     update(seconds) {
-        if (controls.status.left) this.rotate(-Math.PI * seconds * 0.3);
-        if (controls.status.right) this.rotate(Math.PI * seconds * 0.3);
+        if (controls.status.left) this.rotate(-Math.PI * seconds * 0.5);
+        if (controls.status.right) this.rotate(Math.PI * seconds * 0.5);
         if (controls.status.forward) this.walk(this.speed * seconds);
         if (controls.status.backward) this.walk(-this.speed * seconds);
     }
@@ -126,7 +117,7 @@ class Map {
         let currentY = player.y;
 
         let distance = 0;
-        let length2;
+        let length2 = 0;
 
         while (distance < range) {
             let dxx = cos > 0 ? Math.floor(currentX + 1) - currentX :
@@ -156,29 +147,22 @@ class Map {
 
             distance += Math.sqrt(length2);
 
-            let collision = this.collision(currentX - collisionX, currentY - collisionY);
+            let collision = this.collision(currentX - collisionX,
+                currentY - collisionY);
 
             if (collision === -1) {
                 break;
-            } else if (collision > 0) {
+            } else if (collision != 0) {
                 hit.push({
-                  x: currentX,
-                  y: currentY
+                    x: currentX,
+                    y: currentY,
+                    distance: distance,
+                    wall: collision
                 })
             }
 
         }
-
-        сamera.drawRay(
-            player.x * WORLD.sizeBlock,
-            player.y * WORLD.sizeBlock,
-            hit[0].x * WORLD.sizeBlock,
-            hit[0].y * WORLD.sizeBlock,
-            `rgba(200,150,20,0.1)`);
-
         return hit;
-
-
     }
 
     collision(x, y) {
@@ -194,7 +178,7 @@ class Camera {
         this.width = map.width * WORLD.sizeBlock;
         this.height = map.height * WORLD.sizeBlock;
         this.focalLength = 0.8;
-        this.resolution = 800;
+        this.resolution = 200;
         this.rayLength = 40;
     }
 
@@ -208,24 +192,20 @@ class Camera {
     }
 
     renderRays() {
-        let log = []
         for (let column = 0; column < this.resolution; column++) {
             // -0.5 < x < 0.5
             let x = column / this.resolution - 0.5;
             let angle = player.direction + Math.atan2(x, this.focalLength);
 
             var ray = map.castRay(angle, this.rayLength);
-            log.push(ray)
-            // this.drawRay(
-            //     player.x * WORLD.sizeBlock,
-            //     player.y * WORLD.sizeBlock,
-            //     ray[1].x * WORLD.sizeBlock,
-            //     ray[1].y * WORLD.sizeBlock,
-            //     "rgba(33, 243, 100, .2)"
-            // )
+            this.drawRay(
+                player.x * WORLD.sizeBlock,
+                player.y * WORLD.sizeBlock,
+                ray[0].x * WORLD.sizeBlock,
+                ray[0].y * WORLD.sizeBlock,
+                "rgba(33, 243, 100, .8)"
+            )
         }
-        // console.table(log)
-        // xxx
     }
 
     renderPlayer() {
