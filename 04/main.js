@@ -8,28 +8,28 @@ const level = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1.99, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
@@ -37,7 +37,7 @@ const level = [
 ];
 
 const WORLD = {
-    sizeBlock: 20,
+    sizeBlock: 10,
     playerRadius: 8
 }
 
@@ -56,13 +56,19 @@ class Control {
             37: 'left',
             39: 'right',
             38: 'forward',
-            40: 'backward'
+            40: 'backward',
+            87: 'forward',
+            83: 'backward',
+            65: 'leftward',
+            68: 'rightward'
         };
         this.status = {
             'left': false,
             'right': false,
             'forward': false,
-            'backward': false
+            'backward': false,
+            'leftward': false,
+            'rightward': false,
         };
         document.addEventListener('keydown', this.onKey.bind(this, true), false);
         document.addEventListener('keyup', this.onKey.bind(this, false), false);
@@ -83,7 +89,8 @@ class Player {
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.speed = 3.5;
+        this.rot = Math.PI * 0.4;
+        this.speed = 4;
     }
 
     walk(distance) {
@@ -98,21 +105,45 @@ class Player {
         if (map.collision(this.x, this.y + collisionY) <= 0) this.y += dy;
     }
 
+    strafe(distance) {
+        let dx = Math.cos(this.direction - Math.PI / 2) * distance;
+        let dy = Math.sin(this.direction - Math.PI / 2) * distance;
+
+        let radiusPlaterInMap = WORLD.playerRadius / WORLD.sizeBlock;
+        let collisionX = dx > 0 ? radiusPlaterInMap : -radiusPlaterInMap;
+        let collisionY = dy > 0 ? radiusPlaterInMap : -radiusPlaterInMap;
+
+        if (map.collision(this.x + collisionX, this.y) <= 0) this.x += dx;
+        if (map.collision(this.x, this.y + collisionY) <= 0) this.y += dy;
+    }
+
     rotate(angle) {
         this.direction = (this.direction + angle + CIRCLE) % (CIRCLE);
     }
 
     update(seconds) {
-        let speed = 2.5;
-        if (controls.status.left) this.rotate(-Math.PI * seconds);
-        if (controls.status.right) this.rotate(Math.PI * seconds);
+        if (controls.status.left) this.rotate(-this.rot * seconds);
+        if (controls.status.right) this.rotate(this.rot * seconds);
         if (controls.status.forward) this.walk(this.speed * seconds);
         if (controls.status.backward) this.walk(-this.speed * seconds);
+        if (controls.status.leftward) this.strafe(this.speed * seconds);
+        if (controls.status.rightward) this.strafe(-this.speed * seconds);
     }
 }
 
 class Map {
     constructor() {
+        this.wallTexture = [,
+            new Bitmap('wall_texture1.jpg', 1024, 1024),
+            new Bitmap('wall_texture2.jpg', 1024, 1024),
+            new Bitmap('wall_texture3.jpg', 1024, 1024),
+            new Bitmap('wall_texture1.jpg', 1024, 1024),
+            new Bitmap('wall_texture1.jpg', 1024, 1024),
+            new Bitmap('wall_texture1.jpg', 1024, 1024),
+            new Bitmap('wall_texture1.jpg', 1024, 1024),
+            new Bitmap('wall_texture1.jpg', 1024, 1024),
+            new Bitmap('wall_texture1.jpg', 1024, 1024)
+        ]
         this.width = level[0].length;
         this.height = level.length;
     }
@@ -174,12 +205,12 @@ class Map {
 
 class Camera {
     constructor() {
-        this.width =  map.width * WORLD.sizeBlock;
-        this.height =  map.height * WORLD.sizeBlock;
+        this.width = 800;
+        this.height = this.width / 16 * 9;
         this.focalLength = 0.8;
-        this.resolution = 300;
+        this.resolution = this.width;
         // Если расстояние меньше - ошибка из-за того что нет найденной стенки
-        this.rayLength = 32;
+        this.rayLength = 37;
     }
 
     drawRay(startX, startY, endX, endY, color) {
@@ -247,16 +278,46 @@ class Camera {
         }
     }
 
+    renderWall() {
+
+        for (let column = 0; column < this.resolution; column++) {
+            // -0.5 < x < 0.5
+            let x = column / this.resolution - 0.5;
+            let angle = Math.atan2(x, this.focalLength);
+
+            var ray = map.castRay(player.direction + angle, this.rayLength);
+
+            for (var s = ray.length - 1; s >= 0; s--) {
+                if (ray[s].height > 0) {
+                    var z = ray[s].distance * Math.cos(angle);
+                    var wallHeight = 1300 / z;
+                    let top = (this.height - wallHeight) / 2 - wallHeight * (ray[s].height - 1);
+                    wallHeight *= ray[s].height;
+                    let end = top + wallHeight;
+                    let a = z * z  / 300;
+                    a = Math.min(1, a);
+
+                    let texture = map.wallTexture[Math.trunc(ray[s].height)];
+                    // console.log(Math.trunc(ray[s].height));
+                    let textureX = Math.floor(texture.width * ray[s].offset);
+
+                    ctx.globalAlpha = 1;
+                    ctx.drawImage(texture.image, textureX, 0, 1, texture.height, column, top, 1, wallHeight);
+
+                    ctx.fillStyle = '#000000';
+                    ctx.globalAlpha =  Math.min(a, 1);
+                    ctx.fillRect(column, top-1, 1, wallHeight + 1);
+                }
+
+            }
+        }
+    }
 
     render(seconds) {
         ctx.clearRect(0, 0, this.width, this.height);
-        this.renderMap();
-        this.renderRays();
-        this.renderPlayer();
-        // this.renderWall();
+        this.renderWall();
     }
 }
-
 class GameLoop {
     constructor() {
         this.frame = this.frame.bind(this);
@@ -292,4 +353,29 @@ window.addEventListener("load", loop.start(function(seconds) {
     // map.update(seconds);
     player.update(seconds);
     сamera.render();
+
+    // Mouse rotate
+    canvas.onclick = function() {
+        if (canvas.getAttribute("lock") === null) {
+            canvas.requestPointerLock();
+            canvas.setAttribute("lock", "")
+
+        }
+    };
+
+    document.addEventListener('pointerlockchange', lockChangeLog, false);
+
+    function lockChangeLog() {
+        if (document.pointerLockElement === canvas) {
+            document.addEventListener("mousemove", mousemoveCallback, false);
+        } else {
+            document.removeEventListener("mousemove", mousemoveCallback, false);
+            canvas.removeAttribute("lock")
+        }
+    }
+
+    function mousemoveCallback(event) {
+        player.direction += event.movementX * 0.00005;
+
+    }
 }));
