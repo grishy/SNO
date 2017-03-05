@@ -117,7 +117,6 @@ class Map {
         let currentY = player.y;
 
         let distance = 0;
-        let length2 = 0;
 
         while (distance < range) {
             let dxx = cos > 0 ? Math.floor(currentX + 1) - currentX :
@@ -136,33 +135,25 @@ class Map {
             if (lengthX2 < lengthY2) {
                 currentX += dxx;
                 currentY += dxy;
-                length2 = lengthX2;
+                distance += Math.sqrt(lengthX2);
                 collisionX = cos < 0 ? 1 : 0;
             } else {
                 currentX += dyy;
                 currentY += dyx;
-                length2 = lengthY2;
+                distance += Math.sqrt(lengthY2);
                 collisionY = sin < 0 ? 1 : 0;
             }
-
-            distance += Math.sqrt(length2);
 
             let collision = this.collision(currentX - collisionX,
                 currentY - collisionY);
 
-            if (collision === -1) {
-                break;
-            } else if (collision != 0) {
-                hit.push({
-                    x: currentX,
-                    y: currentY,
-                    distance: distance,
-                    wall: collision
-                })
-            }
+            if (collision > 0) break;
 
         }
-        return hit;
+        return {
+          x: currentX,
+          y: currentY
+        };
     }
 
     collision(x, y) {
@@ -178,8 +169,8 @@ class Camera {
         this.width = map.width * WORLD.sizeBlock;
         this.height = map.height * WORLD.sizeBlock;
         this.focalLength = 0.8;
-        this.resolution = 200;
-        this.rayLength = 40;
+        this.resolution = 130;
+        this.rayLength = 15;
     }
 
     drawRay(startX, startY, endX, endY, color) {
@@ -201,8 +192,8 @@ class Camera {
             this.drawRay(
                 player.x * WORLD.sizeBlock,
                 player.y * WORLD.sizeBlock,
-                ray[0].x * WORLD.sizeBlock,
-                ray[0].y * WORLD.sizeBlock,
+                ray.x * WORLD.sizeBlock,
+                ray.y * WORLD.sizeBlock,
                 "rgba(33, 243, 100, .8)"
             )
         }
@@ -270,7 +261,7 @@ class GameLoop {
 let canvas = document.getElementById("display");
 let ctx = canvas.getContext("2d");
 let map = new Map();
-let player = new Player(15, 15, degreesToRadians(90));
+let player = new Player(15, 10, degreesToRadians(90));
 let сamera = new Camera();
 let controls = new Control();
 
