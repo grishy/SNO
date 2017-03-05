@@ -111,48 +111,53 @@ class Map {
         const cos = Math.cos(angle);
         const tan = sin / cos;
         const cot = cos / sin;
-        let hit = [];
+        const cosNegative = cos < 0;
+        const sinNegative = sin < 0;
 
         let currentX = player.x;
         let currentY = player.y;
+        let hit = [];
 
         let distance = 0;
 
         while (distance < range) {
-            let dxx = cos > 0 ? Math.floor(currentX + 1) - currentX :
-                Math.ceil(currentX - 1) - currentX;
+            // Collision with the nearest axis X
+            let dxx = cosNegative ?
+                Math.ceil(currentX - 1) - currentX :
+                Math.floor(currentX + 1) - currentX;
             let dxy = dxx * tan;
             let lengthX2 = dxx * dxx + dxy * dxy;
-
-            let dyx = sin > 0 ? Math.floor(currentY + 1) - currentY :
-                Math.ceil(currentY - 1) - currentY;
+            // Collision with the nearest axis Y
+            let dyx = sinNegative ?
+                Math.ceil(currentY - 1) - currentY :
+                Math.floor(currentY + 1) - currentY;
             let dyy = dyx * cot;
             let lengthY2 = dyx * dyx + dyy * dyy;
 
-            let collisionX = 0;
-            let collisionY = 0;
+            let collision = 0;
 
             if (lengthX2 < lengthY2) {
                 currentX += dxx;
                 currentY += dxy;
                 distance += Math.sqrt(lengthX2);
-                collisionX = cos < 0 ? 1 : 0;
+
+                let shift = cosNegative ? 1 : 0;
+                collision = this.collision(currentX - shift, currentY);
             } else {
                 currentX += dyy;
                 currentY += dyx;
                 distance += Math.sqrt(lengthY2);
-                collisionY = sin < 0 ? 1 : 0;
-            }
 
-            let collision = this.collision(currentX - collisionX,
-                currentY - collisionY);
+                let shift = sinNegative ? 1 : 0;
+                collision = this.collision(currentX, currentY - shift);
+            }
 
             if (collision > 0) break;
 
         }
         return {
-          x: currentX,
-          y: currentY
+            x: currentX,
+            y: currentY
         };
     }
 
@@ -169,8 +174,8 @@ class Camera {
         this.width = map.width * WORLD.sizeBlock;
         this.height = map.height * WORLD.sizeBlock;
         this.focalLength = 0.8;
-        this.resolution = 130;
-        this.rayLength = 15;
+        this.resolution = 200;
+        this.rayLength = 40;
     }
 
     drawRay(startX, startY, endX, endY, color) {
@@ -253,7 +258,7 @@ class GameLoop {
     frame(time) {
         let seconds = (time - this.lastTime) / 1000;
         this.lastTime = time;
-        if (seconds < 0.2) this.callback(seconds);
+        this.callback(seconds);
         requestAnimationFrame(this.frame);
     };
 }

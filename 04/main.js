@@ -28,7 +28,7 @@ const level = [
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
@@ -133,12 +133,13 @@ class Player {
 
 class Map {
     constructor() {
-        this.wallTexture = [, [new Bitmap('wall_texture1.jpg', 1024, 1024), 1],
-            [new Bitmap('wall_texture2.jpg', 1024, 1024), 2],
-            [new Bitmap('wall_texture3.png', 1024, 1024), 3],
-            [new Bitmap('wall_texture4.png', 256, 256), 0.3],
-            [new Bitmap('wall_texture5.png', 1024, 1024), 0.5],
-            [new Bitmap('wall_texture1.jpg', 1024, 1024), 1]
+        this.wallTexture = [,
+            [new Bitmap('assets/wall_texture1.jpg', 1024, 1024), 1],
+            [new Bitmap('assets/wall_texture2.jpg', 1024, 1024), 2],
+            [new Bitmap('assets/wall_texture3.png', 1024, 1024), 3],
+            [new Bitmap('assets/wall_texture4.png', 256, 256), 0.3],
+            [new Bitmap('assets/wall_texture5.png', 1024, 1024), 0.5],
+            [new Bitmap('assets/wall_texture1.jpg', 1024, 1024), 1]
         ]
         this.width = level[0].length;
         this.height = level.length;
@@ -146,6 +147,78 @@ class Map {
     update(s) {}
 
     castRay(angle, range) {
+      //
+      // castRay(angle, range) {
+      //     const sin = Math.sin(angle);
+      //     const cos = Math.cos(angle);
+      //     const tan = sin / cos;
+      //     const cot = cos / sin;
+      //     const range2 = range ** 2;
+      //     let hit = [];
+      //
+      //     let currentX = player.x;
+      //     let currentY = player.y;
+      //
+      //     let distance = 0;
+      //
+      //     while (distance < range) {
+      //         let dxx = cos > 0 ? Math.floor(currentX + 1) - currentX :
+      //             Math.ceil(currentX - 1) - currentX;
+      //         let dxy = dxx * tan;
+      //         let lengthX2 = dxx * dxx + dxy * dxy;
+      //
+      //         let dyx = sin > 0 ? Math.floor(currentY + 1) - currentY :
+      //             Math.ceil(currentY - 1) - currentY;
+      //         let dyy = dyx * cot;
+      //         let lengthY2 = dyx * dyx + dyy * dyy;
+      //
+      //         let collisionX = 0;
+      //         let collisionY = 0;
+      //
+      //         if (lengthX2 < lengthY2) {
+      //             currentX += dxx;
+      //             currentY += dxy;
+      //             distance += Math.sqrt(lengthX2);
+      //             collisionX = cos < 0 ? 1 : 0;
+      //         } else {
+      //             currentX += dyy;
+      //             currentY += dyx;
+      //             distance += Math.sqrt(lengthY2);
+      //             collisionY = sin < 0 ? 1 : 0;
+      //         }
+      //
+      //         let collision = this.collision(currentX - collisionX,
+      //             currentY - collisionY);
+      //
+      //         if (collision === -1) {
+      //             break;
+      //         } else if (collision != 0) {
+      //             hit.push({
+      //                 x: currentX,
+      //                 y: currentY,
+      //                 distance: distance,
+      //                 wall: collision
+      //             })
+      //         }
+      //
+      //     }
+      //     // console.log(distance, range)
+      //     // xxx
+      //
+      //     if (hit.length != 0) {
+      //       return hit;
+      //     } else {
+      //       let  x= range * cos;
+      //       let y = range * sin;
+      //       return [{
+      //         x: player.x + x,
+      //         y: player.y + y,
+      //         distance: Math.sqrt(x*x + y*y),
+      //         wall: -1
+      //       }]
+      //     }
+      //     return hit;
+      // }
         var sin = Math.sin(angle);
         var cos = Math.cos(angle);
         var noWall = {
