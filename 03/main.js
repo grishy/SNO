@@ -37,7 +37,7 @@ var level = [
 ];
 
 var WORLD = {
-    sizeBlock: 24,
+    sizeBlock: 32,
     playerRadius: 6
 }
 
@@ -175,11 +175,12 @@ class Camera {
         this.width = map.width * WORLD.sizeBlock;
         this.height = map.height * WORLD.sizeBlock;
         this.focalLength = 0.8;
-        this.resolution = 250;
+        this.resolution = 35;
         this.rayLength = 40;
     }
 
     drawRay(startX, startY, endX, endY, color) {
+    	ctx.lineWidth = 3;
         ctx.strokeStyle = color;
         ctx.beginPath();
         ctx.moveTo(startX, startY);
