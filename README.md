@@ -4,7 +4,7 @@ For SUAI :school:
 Raycating step by step
 
 1. 
-![Imgur](https://i.imgur.com/gxlvOFV.png)
+![Imgur](https://i.imgur.com/2yhSFDi.png)
 
 2. 
 ![Imgur](https://i.imgur.com/BYAGyLu.png)
